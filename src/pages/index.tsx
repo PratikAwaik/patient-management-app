@@ -124,7 +124,9 @@ export default function HomePage() {
     if (searchBy) setSearchBy(searchBy as "name" | "phone");
     else onSetSearchBy("name");
     if (search) setSearchInput(search);
-  }, [searchParams, onPageClick, onSetSearchBy]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onPageClick, onSetSearchBy]);
 
   const columns: ColumnDef<Patient>[] = useMemo(
     () => [
