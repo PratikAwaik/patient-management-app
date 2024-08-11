@@ -79,7 +79,8 @@ export default function CreatePatientPage() {
       form.reset({
         firstName: data?.name?.[0]?.given?.[0],
         lastName: data?.name?.[0]?.family,
-        // @ts-expect-error: unknown is valid value in Gender enum
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore: unknown is valid value in Gender enum
         gender: data?.gender,
         dateOfBirth: data?.birthDate,
         phone: data?.telecom?.find((item) => item.system === "phone")?.value,
