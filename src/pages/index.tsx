@@ -79,7 +79,7 @@ export default function HomePage() {
   const totalPages = useMemo(() => {
     const totalPages = Math.ceil((data?.total || 0) / 10);
     // for some reason server does not support pages above 1000
-    if (totalPages > 1000) return 999;
+    if (totalPages > 1000) return 1000;
     else return totalPages;
   }, [data?.total]);
 
@@ -317,7 +317,7 @@ export default function HomePage() {
       items.push(
         <PaginationItem key={totalPages}>
           <PaginationLink
-            isActive={totalPages === page}
+            isActive={totalPages - 1 === page}
             onClick={() => onPageClick(totalPages - 1)}
           >
             {totalPages}
